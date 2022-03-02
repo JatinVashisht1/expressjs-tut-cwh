@@ -16,20 +16,16 @@ const port = 3000
 
 
 // we don't make middleware in most of the casses
-// making a middleware
-const harryiddleware = (req, res, next)=>{
-    console.log(req)
-    // next is used to tell which function is to run next
-    next()
-}
+
 
 // app.use(express.static(path.join(__dirname, 'public')));
 
 // using our own middleware
 // app.use(harryiddleware);
 
-app.get('/hello', (req, res) => {
-  res.send('Hello World!')
+// giving parameters to the get request
+app.get('/hello/:name', (req, res) => {
+  res.send('Hello World! ' + req.params.name)
 })
 
 app.get('/about', (req, res) => {
